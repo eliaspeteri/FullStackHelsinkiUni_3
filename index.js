@@ -124,6 +124,7 @@ app.post('/api/persons', (request,response) => {
 
 // Start the server at port 3001
 const PORT = 3001
+process.env.PORT = PORT
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 })
