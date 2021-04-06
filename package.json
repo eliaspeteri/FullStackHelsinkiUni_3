@@ -1,48 +1,29 @@
 {
-  "name": "notebackend",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js && react-scripts start && react-scripts build",
-    "build": "react-scripts build",
-    "dev": "nodemon index.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eliaspeteri/FullStackHelsinkiUni_3.git"
-  },
-  "author": "Elias Peteri",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/eliaspeteri/FullStackHelsinkiUni_3/issues"
-  },
-  "homepage": "https://github.com/eliaspeteri/FullStackHelsinkiUni_3#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.10.8",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "notebackend",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "test": "react-scripts test",
+        "build:ui": "rm -rd build && cd ../part2-persons && npm run build --prod && cp -r build ../persons-backend",
+        "deploy": "git push heroku master",
+        "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
+        "logs:prod": "heroku logs --tail"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "author": "Elias Peteri",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.10.8"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }
