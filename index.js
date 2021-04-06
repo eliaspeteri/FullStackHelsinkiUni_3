@@ -86,7 +86,7 @@ app.get("/api/persons/:id", (request, response, next) => {
 // Delete by ID
 app.delete("/api/persons/:id", (request, response) => {
     Person.findByIdAndRemove(request.params.id)
-        .then((result) => {
+        .then(() => {
             response.status(204).end();
         })
         .catch((error) => next(error));
@@ -130,7 +130,7 @@ app.use(unknownEndpoint);
 // This line enables the errorhandler we've defined above
 app.use(errorHandler);
 
-// Start the server at either a port defined in an environment variable or, if that fails, port 3001
+// Start the server at either a port defined in an environment variable
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
