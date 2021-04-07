@@ -131,7 +131,6 @@ app.use(unknownEndpoint);
 app.use(errorHandler);
 
 // Start the server at either a port defined in an environment variable
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`);
 });
